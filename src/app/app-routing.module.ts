@@ -10,8 +10,9 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {path: '', loadChildren: () => import('./views/main/main.module').then(m => m.MainModule)},
+      {path: 'order', loadChildren: () => import('./views/order/order.module').then(m => m.OrderModule)},
+      {path: 'about-product', loadChildren: () => import('./views/catalog/catalog.module').then(m => m.CatalogModule)},
       {path: 'catalog', loadChildren: () => import('./views/catalog/catalog.module').then(m => m.CatalogModule)},
-      // {path: 'order', loadChildren: () => import('./views/order/order.module').then(m => m.OrderModule)},
     ]
   },
   {path: '**', component: Page404Component}

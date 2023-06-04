@@ -9,7 +9,6 @@ import {CustomPricePipe} from "./pipes/custom-price.pipe";
 import {ProductComponent} from "./components/products/product.component";
 
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
