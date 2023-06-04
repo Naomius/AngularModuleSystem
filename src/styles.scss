@@ -1,0 +1,78 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.form-control {
+  width: auto;
+}
+
+.modal {
+  display: block;
+}
+
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+
+//.modalClose {
+//  display: none;
+//}
+
+.ui-accordion .ui-accordion-header {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin: 15px 0 0;
+  padding: 1.2em 0.5em 1.2em 0.7em;
+  font-size: 100%;
+  border-radius: 10px;
+}
+
+.ui-widget-content {
+  border: none;
+  background: #fff;
+  color: #333;
+  height: 71px;
+}
+
+.ui-accordion .ui-accordion-content {
+  padding: 30px 10px 0 25px;
+  border-top: 0;
+  overflow: auto;
+}
+
+.navbar.collapse a.active {
+  color: black;
+}
+
+/*#formContainer {*/
+/*    max-width: 700px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.form-control {
+  width: 100%;
+}
+
+
+
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

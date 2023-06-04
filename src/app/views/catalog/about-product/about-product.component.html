@@ -1,0 +1,15 @@
+
+<section class="about-product">
+  <div class="container">
+    <h2 class="products-title text-center">{{product.title}}</h2>
+    <div class="product-item">
+        <div class="product-image">
+          <img src="{{product.image}}">
+        </div>
+      <div class="product-text">{{product.description | customDescriptionText: 900}}</div>
+      <div class="product-price">{{product.price | customPrice: 'Руб'}}</div>
+      <a type="button" [routerLink]="'/order'" [queryParams]="{product: product.title}" class="btn btn-primary product-btn w-25">Купить</a>
+    </div>
+  </div>
+</section>
+

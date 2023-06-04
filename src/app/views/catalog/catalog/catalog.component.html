@@ -1,0 +1,8 @@
+<div class="catalog">
+  <div class="container fw-bold fs-3 d-flex justify-content-center mt-5">Наши чайные коллекции</div>
+  <div class="cards mt-5 container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <product *ngFor="let product of products" [product]="product"></product>
+    </div>
+  </div>
+</div>
