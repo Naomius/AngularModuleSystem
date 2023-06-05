@@ -10,7 +10,6 @@ import {ProductsType} from "../../../../types/products.type";
   selector: 'catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
-  providers: [ProductService]
 })
 export class CatalogComponent implements OnInit, OnDestroy{
 
@@ -26,21 +25,16 @@ export class CatalogComponent implements OnInit, OnDestroy{
   ngOnInit() {
    this.subscription = this.productService.searchText
      .pipe(
-       switchMap((searchText: string) => {
-         if (searchText) {
-           return this.productService.getSearchProduct(searchText);
-         } else {
-           return this.productService.getProducts();
-         }
+       switchMap((str: string) => {
+         return str ? this.productService.getSearchProduct(str) : this.productService.getProducts();
        })
      )
      .subscribe({
-       next: (data) => {
-         this.products = data;
+       next: (products) => {
+         this.products = Object.values(products);
        },
        error: (error) => {
-         console.log(error);
-         this.router.navigate(['/'])
+         this.router.navigate([''])
        }
      })
   }

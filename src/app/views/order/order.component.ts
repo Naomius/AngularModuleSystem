@@ -1,11 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
-import {IFormGroupInterface} from "../../components/interfaces/IFormGroupInterface";
 import {ProductService} from "../../shared/services/product.service";
-
-
 
 
 @Component({
@@ -23,7 +20,7 @@ export class OrderComponent implements OnInit, OnDestroy{
   private subscriptionOrder: Subscription | null = null;
 
 
-  public orderForm: FormGroup<IFormGroupInterface> = this.fb.group({
+  public orderForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern('^[а-яА-я]+$')]],
     last_name: ['', [Validators.required, Validators.pattern('^[а-яА-я]+$')]],
     phone: ['', [Validators.required, Validators.pattern('^[\+]?[0-9]{3}?[0-9]{3}?[0-9]{4,5}$')]],
@@ -31,30 +28,29 @@ export class OrderComponent implements OnInit, OnDestroy{
     zip: ['', Validators.required],
     address: ['', [Validators.required, Validators.pattern('^[A-zА-яЁё0-9\\s-\\s/]+$')]],
     product: ['', Validators.required],
-    comment: [''],
+    comment: '',
   })
 
-  //Алексей, такой тип должны возвращать геттеры. Или я слишком не туда свернул?))
-  get name(): AbstractControl<string | null, string | null> | null {
-    return this.orderForm.get('name');
+  get name(): FormControl {
+    return this.orderForm.get('name') as FormControl;
   }
-  get last_name() {
-    return this.orderForm.get('last_name');
+  get last_name(): FormControl {
+    return this.orderForm.get('last_name') as FormControl;
   }
-  get phone() {
-    return this.orderForm.get('phone');
+  get phone(): FormControl {
+    return this.orderForm.get('phone') as FormControl;
   }
-  get country(){
-    return this.orderForm.get('country');
+  get country(): FormControl {
+    return this.orderForm.get('country') as FormControl;
   }
-  get zip() {
-    return this.orderForm.get('zip');
+  get zip(): FormControl {
+    return this.orderForm.get('zip') as FormControl;
   }
-  get address() {
-    return this.orderForm.get('address');
+  get address(): FormControl {
+    return this.orderForm.get('address') as FormControl;
   }
-  get product() {
-    return this.orderForm.get('product');
+  get product(): FormControl {
+    return this.orderForm.get('product') as FormControl;
   }
 
   constructor(private router: Router,
