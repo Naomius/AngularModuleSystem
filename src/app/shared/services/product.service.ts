@@ -11,7 +11,6 @@ import {OrderFormType} from "../../../types/orderForm.type";
 })
 export class ProductService {
 
-
   searchText: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient) { }

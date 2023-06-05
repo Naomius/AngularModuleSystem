@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Subject} from "rxjs";
+import {Router} from "@angular/router";
 import {ProductService} from "../services/product.service";
 import {ProductsType} from "../../../types/products.type";
 
@@ -8,7 +7,6 @@ import {ProductsType} from "../../../types/products.type";
   selector: 'header-component',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [ProductService]
 })
 
 @Input()
@@ -19,19 +17,14 @@ export class HeaderComponent implements OnInit {
   products: ProductsType[] = [];
 
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private productService: ProductService) {
-  }
+  constructor(private router: Router, private productService: ProductService) {}
 
-  ngOnInit(): void {
-    this.activeRoute.queryParams.subscribe((params: Params) => {
-      this.searchValue = params['search']?.trim();
-      this.productService.searchText.next(params['search']?.trim());
-    })
-  }
+  ngOnInit(): void {}
 
 
-  getCatalog() {
-    this.router.navigate(['/catalog'], {queryParams: this.searchValue? {search: this.searchValue} : {}});
+  getCatalog(): void {
+    this.router.navigate(['/catalog']);
+    this.productService.searchText.next(this.searchValue);
   }
 
 }
